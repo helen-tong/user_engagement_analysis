@@ -77,15 +77,15 @@ Clearly repeated users engaged in more activities than single login users. Howev
 
 #### Distribution graphs for repeated users 
 
-![summary1](images/session_dist_repeat.png)
+![dist_repeat](images/session_dist_repeat.png)
 
 #### Distribution graphs for users with single logins
 
-![summary2](images/session_dist_single.png)
+![dist_single](images/session_dist_single.png)
 
 #### Distribution graphs for all users
 
-![summary3](images/sessions_dist.png)
+![session_distribution](images/sessions_dist.png)
 
 
 ---
