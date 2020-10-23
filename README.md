@@ -67,7 +67,7 @@ Inactive duration and active duration spread out pretty evenly throughout the we
 
 ![active_inactive](images/active_inactive.png)
 
-The graph below shows average inactive and active duration during the week. As users engaged in longer activities on Tuesdays, the average session duration and inactive duration also lengthened on Tuesdays. Another interesting thing to note here is average bugs in session - there tend to be more bugs that occurred on Saturdays, and least bugs occurred on Thursdays. It would be interesting to find out **if less bugs also constitutes to shorter session duration** and shorter inactive duration.
+The graph below shows average inactive and active duration during the week. As users engaged in longer activities on Tuesdays, the average session duration and inactive duration also lengthened on Tuesdays. Another interesting thing to note here is average bugs in session - there tend to be more bugs that occurred on Saturdays, and least bugs occurred on Thursdays. 
 
 ![average_session](images/average_session.png)
 
@@ -85,7 +85,7 @@ Clearly repeated users engaged in more activities than single login users. Howev
 
 #### Distribution graphs for all users
 
-![summary3](images/session_dist.png)
+![summary3](images/sessions_dist.png)
 
 
 ---
