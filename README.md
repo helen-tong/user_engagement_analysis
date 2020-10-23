@@ -64,103 +64,60 @@ One interesting thing to point out here is, although Fridays generate the highes
 ![average_activity](images/average_activity.png)
 
 
-### How do features vary between successful campaigns and failed campaigns?
+### Next, I want to look at session duration data. Let's look at active vs. inactive session by day of week.
 
-The median goal for failed campaigns are roughly $7,500 while successful campaigns have a median goal of $3,500. Unsurprisingly, lower goal tend to yield a successful campaign. As for campaign length, longer does not necessary attract more backers. The median campaign length for successful campaigns are around 30 days, versus failed campaigns have a slightly longer length. And lastly, majority of the campaigns that are staff picked end up to be successful campaigns. 
+Inactive duration and active duration spread out pretty evenly throughout the week. However, inactive durations consumed half, if not more, of the total session duration. This is telling me that users might be leaving the site running in the background, or they stayed sign in and did not close the tab after they were done with the site. 
 
-![median](images/median_graph.png)
+![active_inactive](images/active_inactive.png)
 
+The graph below shows average inactive and active duration during the week. As users engaged in longer activities on Tuesdays, the average session duration and inactive duration also lengthened on Tuesdays. Another interesting thing to note here is average bugs in session - there tend to be more bugs that occurred on Saturdays, and least bugs occurred on Thursdays. It would be interesting to find out **if less bugs also constitutes to shorter session duration** and shorter inactive duration.
 
-### How do campaigns do in general by year?
+![average_session](images/average_session.png)
 
-Most campaigns launched between 2010 until the end of of 2013 were able to raised enough funds to meet their goal by deadline. That trend disappeared from 2014 to 2018, and then there was huge spike of successful campaigns in 2019. 
+### Earlier we learned that there were 48 unique users who logged in. I wanted to know what repeated users mostly spent their time doing on the site, and how they compared to users with single logins.
 
-![yearly_summary](images/yearly_summary.png)
+Clearly repeated users engaged in more activities than single login users. However, as we see below, more than 50% of each user activity were engaged by single login users. Not only that, all users in the month of October 2019 engaged in some sort of activities. This makes me believe that we can drive user sign up and user engagement from expanding our user base. 
+
+#### Distribution graphs for repeated users 
+
+![summary1](images/session_dist_repeat.png)
+
+#### Distribution graphs for users with single logins
+
+![summary2](images/session_dist_single.png)
+
+#### Distribution graphs for all users
+
+![summary3](images/session_dist.png)
 
 
 ---
 
-## Modeling
+## Conclusion and Future Analysis
 
-After doing one hot encoding to all categorical features, I was ready to split the data into training set and testing set, and train them with machine learning models. The three models that I did as my baseline models are logistic regression, random forest classifier, and gradient boost classifier. 
+### Key Takeaways:
 
-### Logistic Regression
-- **Accuracy:** 0.627
-- **Cross val score:** 0.623
-- **Confusion Matrix:**
-     | 21,848   | 2663  | 
-    | :-------- | :------: | 
-    | **13,206** | **4,681**| 
+- 62.5% of those who logged in during the month of October 2019 were repeated users.   
+- 47.3% of sessions were above average duration; 52.7% of sessions were below average duration.  
+- Fridays: most logins. Tuesday: most engaged in long activities.    
 
+Because all users engaged in one or more activities after they logged in, it makes me believe that users are finding value in the product, and if we increase our user base, we can drive user sign-ups and user engagement even higher! Here are some of the suggestions to increase user sign-ups and engagement:  
 
-### Random Forest Classifier
-- **Accuracy:** 0.715
-- **Cross val score:** 0.714
-- **Confusion Matrix:**
-     | 18,001    | 6510   | 
-    | :-------- | :------: | 
-    | **5,529** | **12,358**| 
+- Expand user base by having YouTuber shout outs  
+- Use machine learning to feature projects that are of most interest to users  
+- Have users select 3-5 topics that are most interesting to the users, and projects with those   topics or hashtags would be featured to those particular users  
+- Consider implementing challenges, or have featured theme monthly or periodically  
+- Users tend to more productive on Tuesdays - find ways to encourage more logins  
+- Encourage users to also like zero-liked projects. People who receive comments and likes on their projects will tend to like others too!
 
-### Gradient Boost Classifier
-- **Accuracy:** 0.742
-- **Cross val score:** 0.738
-- **Confusion Matrix:** 
+## Future Analysis
 
-    | 20,133    | 4,378   | 
-    | :-------- | :------: | 
-    | **6,573** | **11,314**| 
+- Explore what caused the spike of logins on October 26th.  
+- Find out how inactive sessions were capture - are they sessions left idle for more than a certain amount of time? What if users closed the window without signing out - would that add to inactive session time?  
+- Login time - finding out which hours users are most active can help with future rollouts, or A/B testing or site maintenance.  
+- Most active users - find out what the most active users are doing on site.  
+- Analyze most liked and commented projects and articles, discover what makes them unique and popular. Inspire users to add those components to their own projects!
 
-
-Because my data is balanced, the accuracy score would be a metric I want to use to evaluate how accurate my model is. The accuracy score is the ratio of number of correct predictions to the total number of input samples. In combination with the cross val score and the confusion matrix, I am confident to select gradient boost classifier as the best machine learning model I can use for this prediction. 
-
-Let's evaluate it further by looking at the ROC curve. The ROC curve also shows that gradient boost classifier performs the best out of all three models.
-
-
-![roc_plot](images/roc_plot.png)
-
-
-## Natural Language Processing (NLP)
-
-Sentiment analysis is a sub-field of natural language processing that tries to identify and extract opinions by gauging the attitude, sentiments, and emotions of a writer through texts. I have decided to use the VADER sentiment analysis from the nltk library in python to evaluate the blurb feature, which is the headline to a campaign, to see if I can improve my model using sentiment analysis. 
-
-The VADER analyzer algorithem outputs sentiment scores to 4 classes of sentiments: negative, neutral, positive, and compound, which is the aggregated score of the other three sentiments. 
-
-After adding the 4 classes of sentiment scores to my features, I fit my training data into my three models and find that adding sentiment analysis did not make an impact to my models. 
-
-## Hyperparameters and Feature Importance
-
-Next, I wanted to tune my hypyerparameters by running grid search. After putting my machine to work for 2 hours, grid search returned the most optimal hyperparameters for my gradient boost classifier model:
-
-- **Learning rate:** 0.1
-- **Max Depth:** 6
-- **Min Sample Leaf:** 2
-- **Max Features:** 1
-- **N_estimators:** 500
-- **random_state:** 1
-
-### Feature Importance 
-
-I also looked into feature importance to identify what are some of the most impactful features to the dependent variable. These did not come to a surprise as they reaffirm some of the analysis I did in my EDA.
-
-![features](images/feature_importance.png)
-
-## Conclusion
-
-To conclude, here are some of the suggestions for a successful campaign on Kickstarter:
-- **Goal:** Have a reasonable funding goal.
-- **Staff Pick:** Staff pick campaigns get prime placement on the Kickstarter's website and they appear in Kickstarter's widely-distributed email. It would only make sense that being featured on "Projects We Love" by Kickstarter would help with meeting your project goal.
-- **Launched Year:** If you launched your project between 2011 to Dec 2013, or 2019, chances are you would have a successful campaign than if you have launched your campaign between 2014 and 2018.
-- **Campaign Length:** Keep your campaign length to 30 days. 
-
-Using machine learning, I am able to predict, with **0.751** accurancy, whether a Kickstarter campaign would meet its funding goal within 60 days of its launch. And here is the most optimal model:
-
-#### Gradient Boost Classifier:
-- **Learning rate:** 0.1
-- **Max Depth:** 6
-- **Min Sample Leaf:** 2
-- **Max Features:** 1
-- **N_estimators:** 500
-- **random_state:** 1
 
 
  
