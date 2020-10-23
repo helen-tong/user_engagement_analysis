@@ -73,7 +73,7 @@ The graph below shows average inactive and active duration during the week. As u
 
 ### Earlier we learned that there were 48 unique users who logged in. I wanted to know what repeated users mostly spent their time doing on the site, and how they compared to users with single logins.
 
-Clearly repeated users engaged in more activities than single login users. However, as we see below, more than 50% of each user activity were engaged by single login users. Not only that, all users in the month of October 2019 engaged in some sort of activities. This makes me believe that we can drive user sign up and user engagement from expanding our user base. 
+Clearly repeated users engaged in more activities than single login users. More than 50% of each user activity were engaged by single login users. Not only that, all users in the month of October 2019 engaged in some sort of activities. This makes me believe that we can drive user sign up and user engagement from expanding our user base. 
 
 #### Distribution graphs for repeated users 
 
