@@ -7,10 +7,8 @@
 - [Project Goal](#project-goal)
 - [Data](#the-data)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
-- [Modeling](#modeling)
-- [Natural Language Processing (NLP)](#natural-language-processing-nlp)
-- [Hyperparameters and Feature Importance](#hyperparameters-and-feature-importance)
-- [Conclusion](#conclusion)
+- [Conclusion and Future Analysis](#conclusion-and-future-analysis)
+
 
 ---
 
@@ -28,8 +26,7 @@ One of the funnest tasks as a Data Analyst is to dive deep into the data and ext
 
 ## The Data
 
-I was given a dataset with 300 rows and 14 columns, with user activity information for the month of October 2019. User engagement metrics include projects added, likes given, comments given, inactive duration, bugs in session, and session duration. There was one null value in the "session likes given" column and I replaced it with 0. 
-I also did some feature engineering and created an extra column to extract day of week from the login date column.
+I was given a dataset with with user activity information for the month of October 2019. User engagement metrics include projects added, likes given, comments given, inactive duration, bugs in session, and session duration. There was one null value in the "session likes given" column and I replaced it with 0. I also did some feature engineering and created an extra column to extract day of week from the login date column.
 
 ---
 
